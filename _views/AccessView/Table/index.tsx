@@ -31,9 +31,9 @@ const PermissionTable: React.FC<PermissionTableProps> = ({
           <React.Fragment key={fieldName}>
             <tr>
               <td>{fieldName}</td>
-              {field.create && <td>{field.create ? "✅" : "❌"}</td>}
-              <td>{field.read ? "✅" : "❌"}</td>
-              <td>{field.update ? "✅" : "❌"}</td>
+              {field.create && <td>{field.create.permission ? "✅" : "❌"}</td>}
+              <td>{field.read.permission ? "✅" : "❌"}</td>
+              <td>{field.update.permission ? "✅" : "❌"}</td>
             </tr>
             {field.fields && (
               <tr>

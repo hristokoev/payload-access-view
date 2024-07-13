@@ -45,10 +45,14 @@ const DocumentCollapsible: React.FC<DocumentCollapsibleProps> = (props) => {
         <tbody>
           <tr>
             <td>{documentName}</td>
-            {createPermission && <td>{createPermission ? "✅" : "❌"}</td>}
-            <td>{readPermission ? "✅" : "❌"}</td>
-            <td>{updatePermission ? "✅" : "❌"}</td>
-            {deletePermission && <td>{deletePermission ? "✅" : "❌"}</td>}
+            {createPermission && (
+              <td>{createPermission.permission ? "✅" : "❌"}</td>
+            )}
+            <td>{readPermission.permission ? "✅" : "❌"}</td>
+            <td>{updatePermission.permission ? "✅" : "❌"}</td>
+            {deletePermission && (
+              <td>{deletePermission.permission ? "✅" : "❌"}</td>
+            )}
           </tr>
         </tbody>
       </table>
