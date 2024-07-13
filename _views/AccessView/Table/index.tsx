@@ -36,7 +36,7 @@ const PermissionTable: React.FC<PermissionTableProps> = ({
               <td>{field.update.permission ? "✅" : "❌"}</td>
             </tr>
             {field.fields && (
-              <tr>
+              <tr style={{ background: "none" }}>
                 <td>
                   <PermissionTable fields={field.fields} layout="auto" />
                 </td>
