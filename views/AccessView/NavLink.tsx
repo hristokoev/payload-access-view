@@ -1,6 +1,6 @@
 import React from "react"
 
-export const AccessNavLink = () => {
+const AccessNavLink = () => {
   return (
     <a className="nav__link" id="nav-users" href="/admin/access">
       <svg
@@ -21,3 +21,5 @@ export const AccessNavLink = () => {
     </a>
   )
 }
+
+export default AccessNavLink

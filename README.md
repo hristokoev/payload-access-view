@@ -20,10 +20,10 @@ To use the Payload Access Visualizer, follow these steps:
    $ git clone https://github.com/hristokoev/payload-access-view.git
    ```
 
-2. **Copy the Views Folder**: Copy the `_views` folder to your `src/app/(payload)` directory.
+2. **Copy the Views Folder**: Copy the `views` folder to your `src/payload` directory.
 
    ```bash
-   $ cp -r payload-access-view/_views /path/to/your/project/src/app/(payload)
+   $ cp -r payload-access-view/views /path/to/your/project/src/payload
    ```
 
 3. **Update Payload Configuration**: Add the `AccessView` component to `admin.components.views` and `AccessNavLink` to `admin.components.afterNavLinks` in your Payload configuration file.
@@ -36,12 +36,12 @@ To use the Payload Access Visualizer, follow these steps:
      admin: {
        ...
        components: {
-         afterNavLinks: [AccessNavLink],
+         afterNavLinks: ['src/payload/views/AccessView/NavLink.tsx'],
          views: {
            AccessView: {
+             Component: 'src/payload/views/AccessView/index.tsx',
              path: '/access',
              exact: true,
-             Component: AccessView
            }
          }
        }
@@ -50,14 +50,11 @@ To use the Payload Access Visualizer, follow these steps:
    ```
 
 **Note**: You can place the files in any directory you prefer, just ensure the import paths are correct.
+Make sure you run `pnpm payload generate:importmap` as to regenerate the import map.
 
 ## Usage
 
 To use the visualizer, simply navigate to `/admin/access` in your web browser.
-
-## Bugs
-
-Currently, the metadata for the view is missing, causing the title to display 'Not Found undefined'. This issue does not impact the functionality of the visualizer.
 
 ## Reporting Issues
 

@@ -5,7 +5,7 @@ import React, { Fragment, useState } from "react"
 import { Collapsible } from "@payloadcms/ui"
 import Link from "next/link"
 
-import PermissionTable from "../Table"
+import PermissionTable from "./Table"
 
 type DocumentCollapsibleProps = DocumentPermissions & {
   documentName: string
@@ -96,42 +96,48 @@ const Container: React.FC<Permissions> = ({
         </div>
       </div>
       <div className="doc-controls__divider"></div>
-      <div className="field-type group-field group-field--top-level group-field--within-tab">
-        <div className="group-field__wrap">
-          <div className="group-field__header">
-            <header>
-              <h3 className="group-field__title">Collections</h3>
-            </header>
-          </div>
-          <div className="render-fields render-fields--margins-small">
-            {Object.entries(collections).map(([collectionName, collection]) => (
-              <DocumentCollapsible
-                key={collectionName}
-                documentName={collectionName}
-                {...collection}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className="field-type group-field group-field--top-level group-field--within-tab">
-        <div className="group-field__wrap">
-          <div className="group-field__header">
-            <header>
-              <h3 className="group-field__title">Globals</h3>
-            </header>
-          </div>
-          <div className="render-fields render-fields--margins-small">
-            {Object.entries(globals).map(([globalName, globalCollection]) => (
-              <DocumentCollapsible
-                key={globalName}
-                documentName={globalName}
-                {...globalCollection}
-              />
-            ))}
+      {Object.entries(collections).length > 0 && (
+        <div className="field-type group-field group-field--top-level group-field--within-tab">
+          <div className="group-field__wrap">
+            <div className="group-field__header">
+              <header>
+                <h3 className="group-field__title">Collections</h3>
+              </header>
+            </div>
+            <div className="render-fields render-fields--margins-small">
+              {Object.entries(collections).map(
+                ([collectionName, collection]) => (
+                  <DocumentCollapsible
+                    key={collectionName}
+                    documentName={collectionName}
+                    {...collection}
+                  />
+                )
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      {Object.entries(globals).length > 0 && (
+        <div className="field-type group-field group-field--top-level group-field--within-tab">
+          <div className="group-field__wrap">
+            <div className="group-field__header">
+              <header>
+                <h3 className="group-field__title">Globals</h3>
+              </header>
+            </div>
+            <div className="render-fields render-fields--margins-small">
+              {Object.entries(globals).map(([globalName, globalCollection]) => (
+                <DocumentCollapsible
+                  key={globalName}
+                  documentName={globalName}
+                  {...globalCollection}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </Fragment>
   )
 }

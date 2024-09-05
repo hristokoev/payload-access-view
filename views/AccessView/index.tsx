@@ -1,6 +1,6 @@
 import { AdminViewProps, InitPageResult } from "payload"
 import { DefaultTemplate } from "@payloadcms/next/templates"
-import { Gutter, HydrateClientUser } from "@payloadcms/ui"
+import { Gutter } from "@payloadcms/ui"
 import React, { Fragment } from "react"
 
 import Container from "./Container"
@@ -12,10 +12,6 @@ const AccessView: React.FC<AdminViewProps> = async ({
 }) => {
   return (
     <Fragment>
-      <HydrateClientUser
-        permissions={initPageResult.permissions}
-        user={initPageResult.req.user}
-      />
       <DefaultTemplate
         i18n={initPageResult.req.i18n}
         locale={initPageResult.locale}

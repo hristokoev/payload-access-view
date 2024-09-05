@@ -1,17 +1,14 @@
 import React from "react"
 import { FieldPermissions } from "payload"
 
-interface PermissionTableProps {
+interface TableProps {
   fields: {
     [fieldName: string]: FieldPermissions
   }
   layout?: "fixed" | "auto"
 }
 
-const PermissionTable: React.FC<PermissionTableProps> = ({
-  fields,
-  layout,
-}) => {
+const Table: React.FC<TableProps> = ({ fields, layout }) => {
   const hasCreate = Object.values(fields).some(
     (field) => field.create !== undefined
   )
@@ -38,7 +35,7 @@ const PermissionTable: React.FC<PermissionTableProps> = ({
             {field.fields && (
               <tr style={{ background: "none" }}>
                 <td>
-                  <PermissionTable fields={field.fields} layout="auto" />
+                  <Table fields={field.fields} layout="auto" />
                 </td>
               </tr>
             )}
@@ -49,4 +46,4 @@ const PermissionTable: React.FC<PermissionTableProps> = ({
   )
 }
 
-export default PermissionTable
+export default Table
