@@ -29,9 +29,6 @@ To use the Payload Access Visualizer, follow these steps:
 3. **Update Payload Configuration**: Add the `AccessView` component to `admin.components.views` and `AccessNavLink` to `admin.components.afterNavLinks` in your Payload configuration file.
 
    ```ts
-   import AccessView from './src/app/(payload)/_views/AccessView'
-   import AccessNavLink from './src/app/(payload)/_views/AccessView/NavLink'
-
    export default buildConfig({
      admin: {
        ...
